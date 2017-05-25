@@ -44,8 +44,6 @@
              <div class="page-header"><h1>{{user.truckName}}</h1></div>
            
              <!-- Status and Other Information. -->
-               <h2>Available:</h2>
-               <p>{{user.status}}</p>
                <h2>Food Type:</h2>
                <p>{{user.foodType}}</p>
                <h2>Website:</h2>
@@ -63,14 +61,11 @@
           <div class="panel-body text-center">        
               <h1>Admin</h1>
 
-              <form action="/editTruck" method='post'>
+              <form action="/edituser" method='post'>
                   Truck Name:<br>
                   <input type="text" name="truckName"><br><br>
-                  Message:<br>
-                  <input type="text" name="message"><br><br>
                   Food Type:<br>
                   <input type="text" name="foodType"><br><br>
-                  Website:<br>
                   Phone Number:<br>
                   <input type="text" name="phone"><br><br>
                   Website:<br>

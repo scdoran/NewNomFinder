@@ -33,9 +33,9 @@ app.use('/users', users);
 
 // Database configuration with mongoose
 // LOCAL ENVIRONMENT
-// mongoose.connect("mongodb://localhost/nom");
+mongoose.connect("mongodb://localhost/nom");
 // PRODUCTION ENVIRONMENT
-mongoose.connect("mongodb://heroku_4wnq7797:dp0k7tj0h32hthldf57bkmp94v@ds153521.mlab.com:53521/heroku_4wnq7797");
+// mongoose.connect("mongodb://heroku_4wnq7797:dp0k7tj0h32hthldf57bkmp94v@ds153521.mlab.com:53521/heroku_4wnq7797");
 var db = mongoose.connection;
 
 // Show any mongoose errors
@@ -83,6 +83,27 @@ app.use(stormpath.init(app, {
               enabled: true,
               label: 'User/Admin',
               placeholder: 'user',
+              required: true,
+              type: "text"
+            },
+            truckName: {
+              enabled: true,
+              label: 'TRUCKS! Truck Name',
+              placeholder: 'Burger Town',
+              required: true,
+              type: "text"
+            },
+            foodType: {
+              enabled: true,
+              label: 'TRUCKS! Food Type',
+              placeholder: 'What kind of food do you serve?',
+              required: true,
+              type: "text"
+            },
+            website: {
+              enabled: true,
+              label: 'TRUCKS! Website',
+              placeholder: 'www.burgers.com',
               required: true,
               type: "text"
             }

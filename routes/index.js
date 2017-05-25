@@ -200,33 +200,36 @@ router.get('/setuser',stormpath.loginRequired, function(req, res, next) {
 
 router.post('/edituser', stormpath.loginRequired, function(req,res){
 
-  var firstName = req.body.firstName;
-  var lastName = req.body.lastName; 
-  var phone = req.body.phone;
-  var username = req.body.username;
+  helpers.addUser(req.user);
+  res.end();
+
+  // var firstName = req.body.firstName;
+  // var lastName = req.body.lastName; 
+  // var phone = req.body.phone;
+  // var username = req.body.username;
 
   // console.log("First name: " + firstName);
   // console.log("Last name: " + lastName);
   // console.log("Phone: " + phone);
   // console.log("username: " + username);
 
-  Users.findOneAndUpdate({email: req.user.email}, 
-    {
-      $set: {
-      username: username,
-      firstName: firstName,
-      lastName: lastName,
-      phone: phone
+  // Users.findOneAndUpdate({username: req.user.username}, 
+  //   {
+  //     $set: {
+  //     username: username,
+  //     firstName: firstName,
+  //     lastName: lastName,
+  //     phone: phone
       
-    }}, { upsert: true }).exec(function(err, doc) {
+  //   }}, { upsert: true }).exec(function(err, doc) {
 
-      if (err) {
-      console.log(err);
-      }
-      else {
-      res.render("user");
-      }
-  });
+  //     if (err) {
+  //     console.log(err);
+  //     }
+  //     else {
+  //     res.render("user");
+  //     }
+  // });
 });
 
 // Route to see what user looks like without populating
@@ -349,7 +352,7 @@ router.post("/editTruck", stormpath.loginRequired, function (req, res) {
       console.log(err);
       }
       else {
-      res.render("truck", {'user':doc});
+      res.render("truck");
       }
   });
 });
