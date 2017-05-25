@@ -92,9 +92,6 @@ app.use(stormpath.init(app, {
   }
 }));
 
-app.on('stormpath.ready', function() {
-  app.listen(process.env.PORT || 3000);
-});
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
@@ -111,6 +108,10 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+});
+
+app.on('stormpath.ready', function() {
+  app.listen(process.env.PORT || 3000);
 });
 
 module.exports = app;
