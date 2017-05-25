@@ -336,7 +336,7 @@ router.post('/addtruck', stormpath.loginRequired, function (req, res) {
     // email, firstName, lastName, truckName
 });
 
-router.post("/editTruck", stormpath.loginRequired, function (req, res) {
+// router.post("/editTruck", stormpath.loginRequired, function (req, res) {
 
   // helpers.editTruck(req.user, req.body.truckName, req.body.website, req.body.foodType, req.body.phone);
   // res.render("truck");
@@ -360,7 +360,7 @@ router.post("/editTruck", stormpath.loginRequired, function (req, res) {
   //     res.render("truck");
   //     }
   // });
-});
+// });
 
 router.post('/postadmin', stormpath.loginRequired, function (req, res) {
     req.body.truckName;
