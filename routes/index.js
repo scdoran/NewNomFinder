@@ -200,36 +200,42 @@ router.get('/setuser',stormpath.loginRequired, function(req, res, next) {
 
 router.post('/edituser', stormpath.loginRequired, function(req,res){
 
-  helpers.addUser(req.user);
-  res.end();
+  // helpers.editUser(req.user, req.body.firstName, req.body.lastName, req.body.phone, req.body.username);
+  // res.send("user");
 
-  // var firstName = req.body.firstName;
-  // var lastName = req.body.lastName; 
-  // var phone = req.body.phone;
-  // var username = req.body.username;
+  req.user.givenName = req.body.firstName;
+  req.user.surname = req.body.lastName; 
+  req.data.phone = req.body.phone;
+  req.user.username = req.body.username;
+  req.user.customData.save();
 
-  // console.log("First name: " + firstName);
-  // console.log("Last name: " + lastName);
-  // console.log("Phone: " + phone);
-  // console.log("username: " + username);
-
-  // Users.findOneAndUpdate({username: req.user.username}, 
-  //   {
-  //     $set: {
-  //     username: username,
-  //     firstName: firstName,
-  //     lastName: lastName,
-  //     phone: phone
+  req.user.customData.save(function (err, data){
+    if (err){
+      res.status(400).end("Oops!");
+    } else {
+      console.log(data);
+      // res.send(data);
+          
+    }
+  }).then(Users.findOneAndUpdate({email: req.user.email}, 
+    {
+      $set: {
+      username: username,
+      firstName: firstName,
+      lastName: lastName,
+      phone: phone
       
-  //   }}, { upsert: true }).exec(function(err, doc) {
+    }}, { upsert: true }).exec(function(err, doc) {
 
-  //     if (err) {
-  //     console.log(err);
-  //     }
-  //     else {
-  //     res.render("user");
-  //     }
-  // });
+      if (err) {
+      console.log(err);
+      }
+      else {
+      res.render("user", {'user': doc});
+      }
+  }));
+
+  
 });
 
 // Route to see what user looks like without populating
@@ -331,30 +337,29 @@ router.post('/addtruck', stormpath.loginRequired, function (req, res) {
 });
 
 router.post("/editTruck", stormpath.loginRequired, function (req, res) {
-  var user = req.user;
-  var truckName = req.body.truckName;
-  var website = req.body.website;
-  var message = req.body.message;
-  var foodType = req.body.foodType;
 
-  Trucks.update({email: req.user.email}, 
-  {
-      $set: {
-      truckName: truckName,
-      website: website,
-      message: message,
-      foodType: foodType
-      }
+  // helpers.editTruck(req.user, req.body.truckName, req.body.website, req.body.foodType, req.body.phone);
+  // res.render("truck");
 
-  }, { upsert: true }).exec(function(err, doc) {
 
-      if (err) {
-      console.log(err);
-      }
-      else {
-      res.render("truck");
-      }
-  });
+  // Trucks.update({email: req.user.email}, 
+  // {
+  //     $set: {
+  //     truckName: truckName,
+  //     website: website,
+  //     message: message,
+  //     foodType: foodType
+  //     }
+
+  // }, { upsert: true }).exec(function(err, doc) {
+
+  //     if (err) {
+  //     console.log(err);
+  //     }
+  //     else {
+  //     res.render("truck");
+  //     }
+  // });
 });
 
 router.post('/postadmin', stormpath.loginRequired, function (req, res) {

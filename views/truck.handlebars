@@ -38,7 +38,7 @@
 
     <div id="main">
       <div class="container-fluid">
-        <div class="col-md-8">
+        <div class="col-md-12 text-center">
           <div class="jumbotron">
           <!-- This set's the Jumbotrons header. -->
              <div class="page-header"><h1>{{user.truckName}}</h1></div>
@@ -52,29 +52,6 @@
                <a href="tel:{{user.phone}}"><span class="glyphicon glyphicon-phone glyphicon-align-left" aria-hidden="true"></span></a>
           </div>
         </div>
-
-        <div class='col-md-4'>
-          <div class="panel panel-warning adminPanel">
-              <div class="panel-heading text-center">
-                  Update Your Information:
-              </div>
-          <div class="panel-body text-center">        
-              <h1>Admin</h1>
-
-              <form action="/edituser" method='post'>
-                  Truck Name:<br>
-                  <input type="text" name="truckName"><br><br>
-                  Food Type:<br>
-                  <input type="text" name="foodType"><br><br>
-                  Phone Number:<br>
-                  <input type="text" name="phone"><br><br>
-                  Website:<br>
-                  <input type="text" name="website"><br><br>
-                  <input type="submit" value="Submit"> 
-              </form>
-          </div>
-        </div>
-      </div>
     </div>
        <!-- jQuery -->
        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>  
