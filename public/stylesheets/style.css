@@ -1,0 +1,271 @@
+/*body {*/
+  
+  /*font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: url('../images/bg.jpg');*/
+/*  z-index: -1;
+*/  
+/*}*/
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-width: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+    h2 {font-size: 20px;}
+    #slider {width: 50%;}
+}
+
+a {
+  color: #00B7FF;
+}
+
+.navbar-default {
+  background: #aec6d0;
+  background-image: url('../images/nomfinder.png');
+
+  /*viewport changes*/
+
+  height: 12vh;
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: .8;
+  border-style: none;
+
+}
+
+.nav-heart {
+  color:black;
+  font-size: 5.0vh;
+  margin-top: 22px;
+  margin-right: 32px;
+   -webkit-text-fill-color: #f4a11b; /* Will override color (regardless of order) */
+   -webkit-text-stroke-width: 1px;
+   -webkit-text-stroke-color: black;
+   position: absolute;
+   right: 0;
+
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+    transition: margin-left .5s;
+    padding: 16px;
+}
+
+/* The side navigation menu */
+#sideNav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 100; 
+    top: 0;
+    right: 0;
+    background-color: #111; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+#map {
+  height: 57vh;
+  border: 10px black;
+}
+
+.mapPanel {
+  height: 60vh;
+}
+
+.video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    -webkit-filter: blur(15px);
+    -moz-filter: blur(15px);
+    -o-filter: blur(15px);
+    -ms-filter: blur(15px);
+    filter: blur(15px);
+}
+
+#addBtn{
+  background: #be7467;
+  color: white;
+  width: 40%;
+  margin-left: 9%;
+}
+
+#removeBtn {
+  color: white;
+  background: #be7467;
+  margin-left: 15px;
+  width: 40%;
+}
+
+#truckPic{
+  max-width: 200px;
+  display: block;
+  margin: auto;
+}
+
+/*Favorites Panel*/
+
+.favList > li{
+  list-style: none;
+  margin-left: -43px;
+}
+
+li > a {
+  display: inline-block;
+}
+
+a .favs{
+  display: block;
+  margin: auto;
+  margin-top: 15px;
+}
+
+.nope {
+  font-size: 10px;
+  text-align: center;
+  vertical-align: middle;
+  width: 10px;
+  height: 24px;
+  padding-right: 15px;
+  margin-left: 5px;
+  box-shadow: 4px 4px 4px #999;
+}
+
+
+/*slider stuff*/
+
+#slider{
+  height: 8vh;
+  border-radius: 20px;
+  width: 226px;
+  display: block;
+  margin: auto;
+  margin-bottom: 8px;
+}
+
+.sliderDivOn {
+  background: #fadadd;
+}
+
+.sliderDivOff {
+  background: #b1fb9a;
+}
+
+.sliderHeart {
+    z-index: 999999999;
+    font-size: 8vh;
+}
+
+.sliderHeart.off {
+  color: green;
+  position: relative;
+  /*left: 6px;
+  top: 9px;*/
+}
+
+.sliderHeart.on {
+  color: red;
+  position: relative;
+  /*left: 32px;
+  top: 9px;*/
+}
+
+/* User Form Group */
+
+.form-group{
+  max-width: 50%;
+  display: block;
+  margin: auto;
+}
+
+/*
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+/*.switch input {display:none;}*/
+
+/* The slider */
+/*.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+
+/* Rounded sliders */
+/*.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;*/
